@@ -1,0 +1,135 @@
+@use "./abstracts" as abs;
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: abs.$ff-work-sans;
+	font-size: abs.$fs-normal;
+	background-color: abs.$cl-light-pink;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		background: url("../../assets/images/background-pattern-desktop.svg");
+		width: 100%;
+		height: 35%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		z-index: -1;
+
+		@media only screen and (max-width: 23.4375) {
+			background: url("../../assets/images/background-pattern-mobile.svg");
+		}
+	}
+}
+
+.faq {
+	width: 60rem;
+	min-height: 56rem;
+	background-color: abs.$cl-white;
+	border-radius: 1.5rem;
+	padding: 4rem;
+	margin-inline: 4rem;
+	box-shadow: 0 1rem 3rem 1rem rgba(abs.$cl-dark-purple, 0.2);
+
+	@media only screen and (max-width: 45.625em) {
+		width: 32rem;
+		padding: 2rem;
+	}
+
+	&__question {
+		cursor: pointer;
+
+		&:not(:last-child) {
+			padding-bottom: 2rem;
+			margin-bottom: 2rem;
+			border-bottom: 1px solid abs.$cl-light-pink;
+		}
+	}
+
+	&__header {
+		display: flex;
+		margin-bottom: 3rem;
+
+		img {
+			width: 3.5rem;
+		}
+	}
+
+	&__heading {
+		margin-left: 2rem;
+		font-size: 5rem;
+		color: abs.$cl-dark-purple;
+	}
+
+	&__question-title {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		color: abs.$cl-dark-purple;
+		gap: 2rem;
+
+		p {
+			font-weight: abs.$fw-large;
+			@include abs.transitionAll;
+
+			&:hover {
+				color: abs.$cl-light-purple;
+			}
+		}
+	}
+
+	&__question-btn {
+		cursor: pointer;
+		border: none;
+		background-color: abs.$cl-white;
+		display: flex;
+		align-items: center;
+		position: relative;
+
+		.minus-icon {
+			display: none;
+		}
+	}
+
+	&__question-text {
+		display: none;
+		transform: translateY(-100%);
+
+		p {
+			margin-top: 2rem;
+			color: abs.$cl-grayish-purple;
+			line-height: 1.5;
+		}
+	}
+}
+
+// SHOW QUESTION
+.show .faq__question-text {
+	display: block;
+	transform: translateY(0);
+}
+
+.show .minus-icon {
+	display: block;
+}
+
+.show .plus-icon {
+	display: none;
+}
