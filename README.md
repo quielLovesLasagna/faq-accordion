@@ -31,8 +31,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: []()
-- Live Site URL: []()
+- Solution URL: [https://github.com/quielLovesLasagna/faq-accordion?tab=readme-ov-file](https://github.com/quielLovesLasagna/faq-accordion?tab=readme-ov-file)
+- Live Site URL: [https://quiel-faq-accordion.netlify.app/](https://quiel-faq-accordion.netlify.app/)
 
 ## My process
 
